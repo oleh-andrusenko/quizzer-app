@@ -1,19 +1,20 @@
 import React from "react"
-
+import startScreenImage from '../assets/start-screen.png'
 function StartScreen({ onStart }) {
   return (
-    <div className=' min-h-[80%] bg-white my-2 rounded-lg p-6 flex flex-col gap-8 items-center md:min-w-[64rem] md:gap-20'>
-      <h2 className='text-center text-black text-4xl font-bold my-4 md:text-6xl md:p-10'>
+    <div className='h-[600px] w-[700px] bg-white rounded-xl p-10 flex flex-col justify-center items-center'>
+      <h2 className='text-center text-black text-4xl font-bold my-4 '>
         Welcome to Quizzer!
       </h2>
-      <p className='text-black text-center text-xl mb-10 md:text-3xl'>
+      <img src={startScreenImage} alt="Start screen img" className="w-[350px] h-[250px]"/>
+      <p className='text-black text-center text-lg mb-10'>
         You can start quiz by pressing the button below.
       </p>
       <button
         onClick={() => {
           onStart()
         }}
-        className='w-full p-4 rounded-full text-primary uppercase text-2xl font-semibold bg-white my-8 border-2 border-primary hover:bg-primary hover:text-white md:w-2/3'
+        className='w-2/3 p-3 rounded-full text-white bg-primary uppercase text-2xl font-semibold  my-8 border-2 border-primary hover:bg-white hover:text-primary'
       >
         Start quiz
       </button>

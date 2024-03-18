@@ -5,7 +5,7 @@ function App() {
   
 
   return (
-    <div className='w-full flex flex-col h-screen items-center justify-center px-2 py-4'>
+    <div className='w-screen h-screen'>
       <Quiz  />
     </div>
   )

@@ -25,9 +25,14 @@ function Quiz() {
     })
   }
 
-  let isQuizOver = currentQuestionIndex === QUESTIONS.length - 1
+  function handleRetryQuiz() {
+    setAnswers([])
+    setIsStarted(false)
+  }
+
+  let isQuizOver = currentQuestionIndex === QUESTIONS.length
   return (
-    <>
+    <div className='w-full h-full flex items-center justify-center'>
       {!isStarted && <StartScreen onStart={handleQuizStart} />}
       {isStarted && !isQuizOver && (
         <Question
@@ -35,11 +40,13 @@ function Quiz() {
           currentQuestion={currentQuestionIndex}
           onAnswer={handleAddAnswer}
           onSkip={handleSkipAnswer}
-          timer={5000}
+          timer={10000}
         />
       )}
-      {isQuizOver && <Results answers={answers} />}
-    </>
+      {isQuizOver && (
+        <Results answers={answers} onRetryQuiz={handleRetryQuiz} />
+      )}
+    </div>
   )
 }
 
