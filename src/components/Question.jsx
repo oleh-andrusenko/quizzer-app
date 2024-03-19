@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 import QUESTIONS from "../questions"
+import Answers from "./Answers"
 
 function Question({ currentQuestion, onAnswer, onSkip, timer }) {
   const [remainingTime, setRemainingTime] = useState(timer)
@@ -35,20 +36,11 @@ function Question({ currentQuestion, onAnswer, onSkip, timer }) {
       <p className='text-black text-center text-3xl font-bold '>
         {QUESTIONS[currentQuestion].text}
       </p>
-      <ul className='flex flex-col items-center justify-center w-full '>
-        {QUESTIONS[currentQuestion].answers.map((answer) => (
-          <li className='w-full'>
-            <button
-              onClick={() => {
-                onAnswer(answer)
-              }}
-              className='w-full p-4 rounded-full text-primary font-semibold text-xl bg-white my-2 border-2 border-primary hover:bg-primary hover:text-white'
-            >
-              {answer}
-            </button>
-          </li>
-        ))}
-      </ul>
+      <Answers
+      key={currentQuestion}
+        answers={QUESTIONS[currentQuestion].answers}
+        onAnswer={onAnswer}
+      />
     </div>
   )
 }
